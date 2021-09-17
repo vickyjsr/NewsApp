@@ -41,7 +41,7 @@ public class Setting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),About.class));
-                customType(getApplicationContext(),"fadein-to-fadeout");
+                customType(Setting.this,"fadein-to-fadeout");
             }
         });
 
@@ -49,7 +49,7 @@ public class Setting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://contact-gourav.netlify.app/")));
-                customType(getApplicationContext(),"fadein-to-fadeout");
+                customType(Setting.this,"fadein-to-fadeout");
             }
         });
 
@@ -57,14 +57,15 @@ public class Setting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://newsapi.org/")));
-                customType(getApplicationContext(),"fadein-to-fadeout");
+                customType(Setting.this,"fadein-to-fadeout");
             }
         });
 
         c4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/vickyjsr/NewsApp")));
+                customType(Setting.this,"fadein-to-fadeout");
             }
         });
 

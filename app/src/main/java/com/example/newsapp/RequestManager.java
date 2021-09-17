@@ -1,6 +1,7 @@
 package com.example.newsapp;
 
 import android.content.Context;
+import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
 import com.example.newsapp.Models.NewsApiResponse;
@@ -21,7 +22,13 @@ public class RequestManager {
     public void getNewsHeadlines(final OnFetchDataListener listener, String category, String query)
     {
         CallNewsApi callNewsApi = retrofit.create(CallNewsApi.class);
-        Call<NewsApiResponse> call = callNewsApi.callHeadLines("us",category,query,context.getString(R.string.api_key));
+
+        // getting country code
+        TelephonyManager tm = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+        String countryCodeValue = tm.getNetworkCountryIso();
+        countryCodeValue = countryCodeValue.toLowerCase();
+
+        Call<NewsApiResponse> call = callNewsApi.callHeadLines(countryCodeValue,category,query,context.getString(R.string.api_key));
 
         try {
             call.enqueue(new Callback<NewsApiResponse>() {

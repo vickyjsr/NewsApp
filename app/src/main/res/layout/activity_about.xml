@@ -1,9 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".About">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/top_card"
+        android:background="@drawable/round3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About"
+            android:textStyle="bold"
+            android:textSize="26sp"
+            android:textColor="#ffffff"
+            android:textAlignment="center"
+            android:layout_centerInParent="true"
+            />
+        <LinearLayout
+            android:id="@+id/menu_bar"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/round3">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:id="@+id/settings"
+                android:src="@drawable/ic_back_arrow_2" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_card"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:foregroundGravity="center"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            android:id="@+id/cv2"
+            app:cardUseCompatPadding="true"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv1"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/mypic"
+                    android:foregroundGravity="center"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#078075"/>
+                <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Gourav Modi"
+                android:textSize="20sp"
+                android:id="@+id/tv1"
+                    android:layout_centerHorizontal="true"
+                android:layout_below="@+id/iv1"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardUseCompatPadding="true"
+            android:id="@+id/cv1"
+            android:layout_below="@+id/cv2"
+            android:background="@color/musicbarcolor"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:id="@+id/tv2"
+                    android:text="I am an Android Developer who also have Knowledge of UI/UX designing and frontend Web Development. I am currently Pusuing my bachelor's degree in Electrical Engineering at National Institute of Technology, Jamshedpur."
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+
+                    />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

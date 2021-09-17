@@ -66,11 +66,14 @@
                         android:foregroundGravity="center"
                         >
 
-                        <ImageView
-                            android:layout_width="90dp"
+                        <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/me"
-                            android:layout_height="90dp"
-                            android:background="@drawable/mypic"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
+                            android:src="@drawable/mypic2"
+                            android:foregroundGravity="center"
+                            app:civ_border_width="2dp"
+                            app:civ_border_color="#078075"
                             android:layout_centerVertical="true"
                             android:layout_centerHorizontal="true"
                             />

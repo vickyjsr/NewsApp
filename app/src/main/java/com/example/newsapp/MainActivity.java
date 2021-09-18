@@ -16,6 +16,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.newsapp.Models.NewsApiResponse;
@@ -24,6 +25,7 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import static maes.tech.intentanim.CustomIntent.customType;
 
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     SwipeRefreshLayout swipeRefreshLayout;
     String cate = "general";
     RelativeLayout net_gone;
+    TextView ccp;
 
     Button prev;
 
@@ -77,6 +80,10 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             btn.get(i).setBackgroundColor(getColor(R.color.btn));
         }
 
+        ccp = findViewById(R.id.ccp);
+
+        Locale locale = Locale.getDefault();
+        ccp.setText(localeToEmoji(locale));
 
         prev = b1;
         prev.setBackgroundColor(Color.parseColor("#ffffff"));
@@ -124,6 +131,13 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     }
 
+    private String localeToEmoji(Locale locale) {
+        String countryCode = locale.getCountry();
+        int firstLetter = Character.codePointAt(countryCode, 0) - 0x41 + 0x1F1E6;
+        int secondLetter = Character.codePointAt(countryCode, 1) - 0x41 + 0x1F1E6;
+        return new String(Character.toChars(firstLetter)) + new String(Character.toChars(secondLetter));
+    }
+
     private void shimmerMore() {
 
         container.showShimmer(true);
@@ -154,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
         @Override
         public void onError(String message) {
-            Toast.makeText(getApplicationContext(),"Check your Internet!!",Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(),"Check your Internet!!",Toast.LENGTH_SHORT).show();
             recyclerView.setVisibility(View.INVISIBLE);
             net_gone.setVisibility(View.VISIBLE);
             container.stopShimmer();container.hideShimmer();
@@ -195,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         recyclerView.setVisibility(View.VISIBLE);
         cate = category;
         shimmerMore();
-        Toast.makeText(this,"Fetching news article of "+category,Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this,"Fetching news article of "+category,Toast.LENGTH_SHORT).show();
 
         RequestManager manager = new RequestManager(this);
         manager.getNewsHeadlines(listener,category,null);
@@ -223,7 +237,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         recyclerView.setVisibility(View.VISIBLE);
         String category = cate;
         shimmerMore();
-        Toast.makeText(this,"Fetching news article of "+category,Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this,"Fetching news article of "+category,Toast.LENGTH_SHORT).show();
 
         RequestManager manager = new RequestManager(this);
         manager.getNewsHeadlines(listener,category,null);
@@ -236,4 +250,5 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             }
         }, 2000);
     }
+
 }

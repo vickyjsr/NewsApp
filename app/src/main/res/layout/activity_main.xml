@@ -14,11 +14,25 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ccp"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="News App"
             android:textStyle="bold"
+            android:id="@+id/tvappname"
             android:textSize="26sp"
             android:textColor="#ffffff"
             android:textAlignment="center"
